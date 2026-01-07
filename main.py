@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from dotenv import load_dotenv
 from llm import generate_email_content
+from datetime import datetime
 
 
 #Load environment variables from .env file
@@ -36,6 +37,6 @@ def send_email(recipient_email, subject, body, attachment_path=None):
 
 if __name__ == "__main__":
     recipient = "conradkrantz@gmail.com"
-    subject = "Test Email"
+    subject = f"AI Newsletter - {datetime.now().strftime('%Y-%m-%d')}"
     body = generate_email_content("the importance of AI in modern business")
     send_email(recipient, subject, body)
