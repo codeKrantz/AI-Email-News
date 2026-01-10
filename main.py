@@ -36,7 +36,7 @@ def send_email(recipient_email, subject, body, attachment_path=None):
 
 
 if __name__ == "__main__":
-    recipient = "conradkrantz@gmail.com"
+    recipient = os.getenv("RECIPIENT_EMAIL")
     subject = f"AI Newsletter - {datetime.now().strftime('%Y-%m-%d')}"
-    body = generate_email_content("the importance of AI in modern business")
+    body = generate_email_content(os.getenv("EMAIL_CONTENT"))
     send_email(recipient, subject, body)
